@@ -6,14 +6,14 @@ import com.coxautodev.graphql.tools.GraphQLResolver;
 
 public class AddressResolver implements GraphQLResolver<Address> {
 
-	private AddressRepository addressRepository;
+	private PersonRepository personRepository;
 	
-	public AddressResolver(AddressRepository addressRepository) {
-		this.addressRepository = addressRepository;
+	public AddressResolver(PersonRepository personRepository) {
+		this.personRepository = personRepository;
 	}
 	
 	public List<Address> allAddresses() {
-		return addressRepository.allAddresses();
+		return personRepository.allAddresses();
 	}
 
 }

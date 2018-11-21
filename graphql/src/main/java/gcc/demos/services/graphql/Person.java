@@ -32,6 +32,7 @@ public class Person {
 	}
 	
 	public void setAddressId(String addressId) {
+		System.out.println("Setting address id: " + addressId);
 		this.addressId = addressId;
 	}
 	

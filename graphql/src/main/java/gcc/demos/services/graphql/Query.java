@@ -7,11 +7,9 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 public class Query implements GraphQLQueryResolver {
 
 	private final PersonRepository personRepository;
-	private final AddressRepository addressRepository;
 	
-	public Query (PersonRepository personRepository, AddressRepository addressRepository) {
+	public Query (PersonRepository personRepository) {
 		this.personRepository = personRepository;
-		this.addressRepository = addressRepository;
 	}
 	
 	public List<Person> allPeople() {
@@ -19,7 +17,7 @@ public class Query implements GraphQLQueryResolver {
 	}
 	
 	public List<Address> allAddresses() {
-		return addressRepository.allAddresses();
+		return personRepository.allAddresses();
 	}
 	
 	
