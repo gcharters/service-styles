@@ -1,0 +1,39 @@
+type Person {
+	id: ID!
+	firstName: String!
+	lastName: String!
+	dob: String
+	address: Address
+}
+
+type Address {
+	id: ID!
+	nameOrNumber: String!
+	street: String
+	line2: String
+	state: String
+	zip: String!
+	country: String!
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    allPeople: [Person]
+    allAddresses: [Address]
+}
+
+type Mutation {
+	createPerson(firstName: String!, 
+	             lastName: String!, 
+	             dob: String!): Person
+	createAddress(nameOrNumber: String!, 
+				  street: String!, 
+				  line2: String, 
+				  state: String, 
+				  zip: String!, 
+				  country: String!): Address
+}
