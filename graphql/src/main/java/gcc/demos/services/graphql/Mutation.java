@@ -22,5 +22,11 @@ public class Mutation implements GraphQLMutationResolver {
 		return personRepository.save(address);
 	}
 	
+	public Person setAddressOfPerson(String personId, String addressId) {
+		Person person = personRepository.personWithId(personId);
+		person.setAddressId(addressId);
+		return personRepository.save(person);
+	}
+	
 	
 }

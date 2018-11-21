@@ -61,5 +61,12 @@ public class PersonRepository {
 		addresses.put(address.getId(), address);
 		return address;
 	}
+
+	public Person personWithId(String id) {
+		return people.values().stream()
+				.filter(person -> person.getId().equals(id))
+				.findFirst()
+				.orElse(null);
+	}
 	
 }

@@ -36,4 +36,5 @@ type Mutation {
 				  state: String, 
 				  zip: String!, 
 				  country: String!): Address
+    setAddressOfPerson(personId: String, addressId: String!): Person
 }
