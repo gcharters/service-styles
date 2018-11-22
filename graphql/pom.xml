@@ -6,6 +6,12 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <parent>
+        <groupId>net.wasdev.wlp.maven.parent</groupId>
+        <artifactId>liberty-maven-app-parent</artifactId>
+        <version>2.6.2</version>
+    </parent>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -98,49 +104,6 @@
                         <default.https.port>${testServerHttpsPort}</default.https.port>
                     </bootstrapProperties>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>install-liberty</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>install-server</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>install-feature</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>install-feature</goal>
-                        </goals>
-                        <configuration>
-                            <features>
-                                <acceptLicense>true</acceptLicense>
-                            </features>
-                        </configuration>
-                    </execution>
-                     <execution>
-                        <id>install-app</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>install-apps</goal>
-                        </goals>
-                        <configuration>
-                            <looseApplication>true</looseApplication>
-                            <stripVersion>true</stripVersion>
-                            <installAppPackages>project</installAppPackages>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>package-app</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>package-server</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>target/wlp-package</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
