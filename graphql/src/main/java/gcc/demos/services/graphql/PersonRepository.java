@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import javax.enterprise.context.ApplicationScoped;
 
+@ApplicationScoped
 public class PersonRepository {
 	
-	private static final ConcurrentHashMap<String, Person> people = new ConcurrentHashMap<String, Person>();
-	private static final ConcurrentHashMap<String, Address> addresses = new ConcurrentHashMap<String, Address>();
+	private ConcurrentHashMap<String, Person> people = new ConcurrentHashMap<String, Person>();
+	private ConcurrentHashMap<String, Address> addresses = new ConcurrentHashMap<String, Address>();
 
-	static {
+	public PersonRepository() {
 		Person person = new Person("Bob", "Bobson", "31-12-1999");
 		person.setId(UUID.randomUUID().toString());
 		Address address = new Address("14", "Wibble Road", "", "Hampshire", "14311", "England");

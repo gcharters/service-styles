@@ -1,5 +1,6 @@
 package gcc.demos.services.graphql;
 
+import javax.inject.Inject;
 import javax.servlet.annotation.WebServlet;
 
 import com.coxautodev.graphql.tools.SchemaParser;
@@ -13,11 +14,19 @@ public class GraphQLEndpoint extends SimpleGraphQLHttpServlet {
 
 	private static final long serialVersionUID = -5981232340854324385L;
 	
-	private static final PersonRepository personRepository;
+	@Inject
+	private Query query;
 	
-    static {
-        personRepository = new PersonRepository();
-    }
+	@Inject 
+	private Mutation mutation;
+	
+	@Inject
+	PersonResolver personResolver;
+	
+	@Inject
+	AddressResolver addressResolver;
+	
+	
     
     public GraphQLEndpoint() {
     }
@@ -28,14 +37,18 @@ public class GraphQLEndpoint extends SimpleGraphQLHttpServlet {
       return GraphQLConfiguration.with(createSchema()).build();
     }
 
-    private static GraphQLSchema createSchema() {
+    private /*static*/ GraphQLSchema createSchema() {
         return SchemaParser.newParser()
                 .file("schema.graphqls")
                 .resolvers(
-                        new Query(personRepository),
+/*                        new Query(personRepository),
                         new Mutation(personRepository),
                         new PersonResolver(personRepository),
-                        new AddressResolver(personRepository)
+                        new AddressResolver(personRepository)*/
+                        query,
+                        mutation, 
+                        personResolver,
+                        addressResolver
                         )
                 .build()
                 .makeExecutableSchema();

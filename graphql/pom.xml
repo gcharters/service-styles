@@ -24,6 +24,18 @@
         <packaging.type>minify,runnable</packaging.type>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.openliberty.features</groupId>
+                <artifactId>features-bom</artifactId>
+                <version>RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -41,9 +53,15 @@
             <version>7.1.0</version>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
+            <groupId>io.openliberty.features</groupId>
+            <artifactId>servlet-4.0</artifactId>
+            <type>esa</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.openliberty.features</groupId>
+            <artifactId>cdi-2.0</artifactId>
+            <type>esa</type>
             <scope>provided</scope>
         </dependency>
         <dependency>

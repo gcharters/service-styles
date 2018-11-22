@@ -2,15 +2,17 @@ package gcc.demos.services.graphql;
 
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 
+@ApplicationScoped
 public class Query implements GraphQLQueryResolver {
 
-	private final PersonRepository personRepository;
-	
-	public Query (PersonRepository personRepository) {
-		this.personRepository = personRepository;
-	}
+	@Inject
+	private PersonRepository personRepository;
+
 	
 	public List<Person> allPeople() {
 		return personRepository.allPeople();

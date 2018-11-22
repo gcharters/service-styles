@@ -1,15 +1,16 @@
 package gcc.demos.services.graphql;
 
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 
+@ApplicationScoped
 public class Mutation implements GraphQLMutationResolver {
 
-	private final PersonRepository personRepository;
-	
-	public Mutation(PersonRepository personRepository) {
-		this.personRepository = personRepository;
-	}
+	@Inject
+	private  PersonRepository personRepository;
 	
 	public Person createPerson(String firstName, String lastName, String dob) {
 		Person person = new Person(firstName, lastName, dob);
