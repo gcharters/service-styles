@@ -1,4 +1,4 @@
-package gcc.demos.services.graphql;
+package gcc.demos.graphql.model;
 
 
 public class Person {

@@ -1,7 +1,11 @@
-package gcc.demos.services.graphql;
+package gcc.demos.graphql.api;
 
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+
+import gcc.demos.graphql.model.Address;
+import gcc.demos.graphql.model.Person;
+import gcc.demos.graphql.repository.PersonRepository;
 
 public class Mutation implements GraphQLMutationResolver {
 

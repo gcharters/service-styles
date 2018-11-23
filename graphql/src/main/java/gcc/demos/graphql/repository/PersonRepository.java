@@ -1,9 +1,12 @@
-package gcc.demos.services.graphql;
+package gcc.demos.graphql.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+
+import gcc.demos.graphql.model.Address;
+import gcc.demos.graphql.model.Person;
 
 public class PersonRepository {
 	

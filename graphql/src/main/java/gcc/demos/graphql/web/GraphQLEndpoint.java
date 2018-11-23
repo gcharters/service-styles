@@ -1,9 +1,14 @@
-package gcc.demos.services.graphql;
+package gcc.demos.graphql.web;
 
 import javax.servlet.annotation.WebServlet;
 
 import com.coxautodev.graphql.tools.SchemaParser;
 
+import gcc.demos.graphql.api.Mutation;
+import gcc.demos.graphql.api.Query;
+import gcc.demos.graphql.repository.PersonRepository;
+import gcc.demos.graphql.resolver.AddressResolver;
+import gcc.demos.graphql.resolver.PersonResolver;
 import graphql.schema.GraphQLSchema;
 import graphql.servlet.GraphQLConfiguration;
 import graphql.servlet.SimpleGraphQLHttpServlet;
