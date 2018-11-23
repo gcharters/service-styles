@@ -40,7 +40,7 @@ Press the play button and you should see:
         "lastName": "Bobson",
         "dob": "31-12-1999"
       },
-      ...
+      . . .
     ]
   }
 }
@@ -76,7 +76,7 @@ Press the play button and you should see:
         "zip": "43354",
         "country": "Someland"
       },
-      ...
+      . . .
     ]
   }
 }
@@ -119,7 +119,7 @@ Press the play button and you should see:
           "zip": "14311"
         }
       },
-      ...
+      . . .
     ]
   }
 }
