@@ -15,6 +15,9 @@ public class Person {
 		this.dob = dob;
 	}
 	
+	public Person() {
+	}
+	
 	public void setId(String id) {
 		this.id = id;
 	}

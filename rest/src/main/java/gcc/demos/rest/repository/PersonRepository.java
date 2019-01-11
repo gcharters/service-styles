@@ -47,6 +47,27 @@ public class PersonRepository {
 		return person;
 	}
 	
+	
+	public Person update(Person person) {
+		if (personWithId(person.getId()) == null)
+			return null;
+		
+		people.put(person.getId(), person);
+		return person;
+	}
+	
+
+	public Person personWithId(String id) {
+		return people.values().stream()
+				.filter(person -> person.getId().equals(id))
+				.findFirst()
+				.orElse(null);
+	}
+
+	public Person delete(String personId) {
+		return people.remove(personId);
+	}
+	
 	public List<Address> allAddresses() {
 		return new ArrayList<Address>(addresses.values());
 	}
@@ -65,13 +86,5 @@ public class PersonRepository {
 		addresses.put(address.getId(), address);
 		return address;
 	}
-
-	public Person personWithId(String id) {
-		return people.values().stream()
-				.filter(person -> person.getId().equals(id))
-				.findFirst()
-				.orElse(null);
-	}
-
 	
 }
