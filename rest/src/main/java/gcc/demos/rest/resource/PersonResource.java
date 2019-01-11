@@ -61,9 +61,12 @@ public class PersonResource {
     
     @GET
     @Path("/filter")
-    public List<Person> contains(@QueryParam("firstName") String firstName, @QueryParam("lastName") String lastName) {
-    	System.out.println("FirstName: " + firstName + " LastName: " + lastName);
-    	return new ArrayList<Person>();
+    public List<Person> contains(@QueryParam("lastName") String lastName) {
+    	List<Person> matches = personRepo.personWithLastName(lastName);
+    	if (matches.isEmpty())
+    		throw new NotFoundException("No people with matching lastName");
+    	else
+    		return matches;
     }
     
     @POST

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 import gcc.demos.rest.model.Address;
 import gcc.demos.rest.model.Person;
@@ -62,6 +63,12 @@ public class PersonRepository {
 				.filter(person -> person.getId().equals(id))
 				.findFirst()
 				.orElse(null);
+	}
+	
+	public List<Person> personWithLastName(String lastName) {
+		return people.values().stream()
+				.filter(person -> person.getLastName().equals(lastName))
+				.collect(Collectors.toList());
 	}
 
 	public Person delete(String personId) {
