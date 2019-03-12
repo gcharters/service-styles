@@ -22,6 +22,7 @@ public class PersonRepository {
 		person.setAddressId(address.getId());
 		people.put(person.getId(), person);
 		
+		System.out.println("Person id: " + person.getId());
 		System.out.println("Address id: " + address.getId());
 
 		
@@ -33,6 +34,7 @@ public class PersonRepository {
 		person.setAddressId(address.getId());
 		people.put(person.getId(), person);
 
+		System.out.println("Person id: " + person.getId());
 		System.out.println("Address id: " + address.getId());
 	}
 	

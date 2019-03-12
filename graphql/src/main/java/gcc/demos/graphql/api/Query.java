@@ -16,13 +16,20 @@ public class Query implements GraphQLQueryResolver {
 		this.personRepository = personRepository;
 	}
 	
-	public List<Person> allPeople() {
+	public List<Person> people() {
 		return personRepository.allPeople();
 	}
 	
-	public List<Address> allAddresses() {
+	public List<Address> addresses() {
 		return personRepository.allAddresses();
 	}
 	
+	public Person person(String id) {
+		return personRepository.personWithId(id);
+	}
+
+	public Address address(String id) {
+		return personRepository.addressWithId(id);
+	}
 	
 }

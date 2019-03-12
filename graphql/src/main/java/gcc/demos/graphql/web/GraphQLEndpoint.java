@@ -7,7 +7,6 @@ import com.coxautodev.graphql.tools.SchemaParser;
 import gcc.demos.graphql.api.Mutation;
 import gcc.demos.graphql.api.Query;
 import gcc.demos.graphql.repository.PersonRepository;
-import gcc.demos.graphql.resolver.AddressResolver;
 import gcc.demos.graphql.resolver.PersonResolver;
 import graphql.schema.GraphQLSchema;
 import graphql.servlet.GraphQLConfiguration;
@@ -39,8 +38,7 @@ public class GraphQLEndpoint extends SimpleGraphQLHttpServlet {
                 .resolvers(
                         new Query(personRepository),
                         new Mutation(personRepository),
-                        new PersonResolver(personRepository),
-                        new AddressResolver(personRepository)
+                        new PersonResolver(personRepository)
                         )
                 .build()
                 .makeExecutableSchema();

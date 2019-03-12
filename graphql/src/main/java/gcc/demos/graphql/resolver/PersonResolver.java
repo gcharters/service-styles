@@ -15,10 +15,6 @@ public class PersonResolver implements GraphQLResolver<Person> {
 	public PersonResolver(PersonRepository personRepository) {
 		this.personRepository = personRepository;
 	}
-	
-	public List<Person> allPeople() {
-		return personRepository.allPeople();
-	}
 
 	public Address address(Person person) {
 		return personRepository.addressWithId(person.getAddressId());

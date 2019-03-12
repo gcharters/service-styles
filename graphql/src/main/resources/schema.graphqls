@@ -22,8 +22,10 @@ schema {
 }
 
 type Query {
-    allPeople: [Person]
-    allAddresses: [Address]
+    people: [Person]
+    person (id: ID!): Person
+    addresses: [Address]
+    address (id: ID!): Address
 }
 
 type Mutation {
