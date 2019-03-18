@@ -1,0 +1,53 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "gcc.demos.grpc";
+option java_outer_classname = "PersonProto";
+option objc_class_prefix = "Gcc";
+
+import "google/protobuf/empty.proto";
+
+package person;
+
+service PersonService {
+  rpc GetPeople (google.protobuf.Empty) returns (stream Person) {}
+  rpc GetPerson (Person) returns (Person) {}
+  rpc SetPerson (Person) returns (Person) {}
+  rpc GetAddress (Person) returns (Address) {}
+  rpc SetPersonAndAddress (PersonAndAddress) returns (PersonAndAddress) {}
+  rpc GetPersonAndAddress (Person) returns (PersonAndAddress) {}
+  rpc GetAgeInYears (Person) returns (AgeInYearsResponse) {}
+}
+
+service AddressService {
+  rpc GetAddress (Address) returns (Address) {}
+  rpc SetAddress (Address) returns (Address) {}
+}
+
+message Person {
+  string id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string dob = 4;
+  string addressId = 5;
+}
+
+message Address {
+  string id = 1;
+  string nameOrNumber = 2;
+  string street= 3;
+  string line2 = 4;
+  string state = 5;
+  string zip = 6;
+  string country = 7;
+}
+
+message PersonAndAddress {
+  Person person = 1;
+  Address address = 2;
+}
+
+message AgeInYearsResponse {
+  int32 age = 1;
+}
